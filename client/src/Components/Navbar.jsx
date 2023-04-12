@@ -7,23 +7,20 @@ export default function Navbar() {
     const navtheme = {
         px: 5,
         py:1,
-        bg: 'linear-gradient(to right ,rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);',
-        color: 'white'
+        bg: '#fafafa',     
     }
-    const buttontheme = {
-        
-        bg: 'white',
-        color: 'blue.300',
-    }
+   
 
     return (
-        <Flex as='nav' sx={navtheme} boxShadow='base'>
-            <Heading fontWeight='extrabold' fontSize={{base:'xl',md:'3xl',lg:'5xl'}}>Recart</Heading>
+        <Flex as='nav' sx={navtheme} boxShadow='base' h='10vh'>
+            <Heading 
+            fontWeight='extrabold' 
+            fontSize={{base:'xl',md:'3xl',lg:'5xl'}}
+            bgGradient='linear(to-r,#A88BEB,#F8CEEC)'
+            bgClip='text'
+            >Recart</Heading>
             <Spacer />
-            <HStack gap='20'>
-            <NavigationButton theme={buttontheme} text={'Register'} path={'/register'}/>
-            <NavigationButton theme={buttontheme} text={'Login'} path={'/login'}/>
-            </HStack>
+            
         </Flex>
     )
 }

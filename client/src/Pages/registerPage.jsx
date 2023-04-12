@@ -1,19 +1,26 @@
 import React from 'react'
+import image from '../assets/rF.jpg'
 import RegisterForm from '../Components/Forms/registerForm'
-import registerImg from '../assets/register-page.jpg'
-import { Container, Image, SimpleGrid } from '@chakra-ui/react'
+import {GridItem, SimpleGrid } from '@chakra-ui/react'
+import FormImg from '../Components/Forms/formImg'
 
 
 function RegisterPage() {
+
     return (
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 2 }} px={{ base: 0, md: 5, xl: 10 }} py={{ base: 3, md: 5, xl: 8 }} alignItems='center' >
-            <Container>
-                <Image src={registerImg} />
-            </Container>
-            <Container>
-                <RegisterForm />
-            </Container>
-        </SimpleGrid>
+       
+            <SimpleGrid columns={{ base: 1, md: 2, lg: 2 }} px={{ base: 0, md: 5, xl: 10 }} py={{ base: 0, md: 5, xl: 8 }} mx='auto' w={{ base: "100%", md: "75%", lg: "75%" }}>
+                <GridItem colSpan={1}>
+                    <FormImg img={image} heading={"Welcome Back,"} 
+                    text={"To keep connected with us please login with your personal info."} path="login"/>
+                </GridItem>
+                <GridItem colSpan={1}>
+                    <RegisterForm />
+                </GridItem>
+
+
+            </SimpleGrid>
+       
 
 
 

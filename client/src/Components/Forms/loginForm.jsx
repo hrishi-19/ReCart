@@ -1,58 +1,60 @@
-import React from 'react'
+import { React, useState } from 'react'
 import {
   Text,
   Input,
   Button,
-  InputGroup,
+  FormLabel,
   Stack,
-  InputLeftElement,
   chakra,
   Box,
   FormControl,
   Flex,
-  Avatar,
+  useToast
 } from "@chakra-ui/react";
-import { FaUserAlt, FaLock } from "react-icons/fa"
-import {Link} from 'react-router-dom'
 
 function LoginForm() {
-  const CFaUserAlt = chakra(FaUserAlt)
-  const CFaLock = chakra(FaLock)
+  const toast = useToast()
+  const [loginData, setLoginData] = useState({
+    userName: '',
+    password: ''
+  })
+  const handleChange = (e) => {
+    setLoginData({
+      ...loginData,
+      [e.target.name]: e.target.value
+    })
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    toast({
+      title: 'Login Succesfull',
+      status: 'success',
+      duration: 1000,
+      isClosable: true,
+    })
+  }
   return (
     <Flex flexDirection='column' w='100%' alignItems='center' >
       <Flex w={{ base: '100%', md: '80%', lg: '80%' }}
-       borderRadius='2xl'
-        bgGradient='linear-gradient(to right ,rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);'
-         flexDirection='column'
-         >
-        <Stack h='200px' w='100%' alignItems='center' gap='5' p='5'>
-          <Avatar bg='blackAlpha.100' />
-          <Text fontSize='4xl' color='white' fontWeight='900'>Welcome back</Text>
 
+        flexDirection='column'
+      >
+        <Stack h='150px' w='100%' alignItems='center' gap='5' p='5'>
+         
+          <Text my="auto" fontSize='4xl' color='purple.400' fontWeight='900'>Sign in to Recart</Text>
         </Stack>
-        <Box w='100%' p='6'
-         borderTopRadius='3xl'
-         borderBottomRadius='2xl'
-          bg='white'
-          border='1px'
-          borderColor='gray.100'
-          boxShadow='xl' >
-          <form>
+        <Box w='100%' p='6'>
+          <form onSubmit={handleSubmit}>
             <Stack spacing='4' p='1rem'>
               <FormControl isRequired>
-                <InputGroup >
-                  <InputLeftElement children={<CFaUserAlt color='blue.400' />} pointerEvents='none' />
-                  <Input type='text' placeholder='johndoe' />
-                </InputGroup>
+                <FormLabel>Username:</FormLabel>
+                <Input type='text' placeholder='johndoe' onChange={handleChange} name='userName' />
               </FormControl>
               <FormControl isRequired>
-                <InputGroup>
-                  <InputLeftElement children={<CFaLock color='blue.400' />} pointerEvents='none' />
-                  <Input type='password' minLength='8' />
-                </InputGroup>
+                <FormLabel>Password:</FormLabel>
+                <Input type='password' minLength='8' onChange={handleChange} name='password' />
               </FormControl>
-              <Button type='submit' bgGradient='linear-gradient(to right ,rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);' color='white' w='100%' _hover='none'>Login</Button>
-              <Link to='/register'><Text fontWeight='500' color='gray.600' textAlign='center' fontSize='sm' >New user?Register</Text></Link>
+              <Button type='submit' bgGradient='linear(to-r,#A88BEB,#F8CEEC)' color='white' w='100%' _hover='none'>Login</Button>
             </Stack>
           </form>
         </Box>

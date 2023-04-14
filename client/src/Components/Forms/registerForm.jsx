@@ -10,11 +10,13 @@ import {
   useToast
 } from '@chakra-ui/react'
 import {React,useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 function RegisterForm() {
 
   const toast=useToast()
+  const navigate=useNavigate()
   const[registerData,setRegisterData]=useState({
     firstName:'',
     lastName:'',
@@ -35,11 +37,14 @@ function RegisterForm() {
   }
   const handleSubmit=(e)=>{
     e.preventDefault()
+    setTimeout(function(){
+      navigate('/login')
+    },2000)
     toast({
       title: 'Account created.',
           description: "We've created your account for you.",
           status: 'success',
-          duration: 6000,
+          duration: 1000,
           isClosable: true,
     })
    

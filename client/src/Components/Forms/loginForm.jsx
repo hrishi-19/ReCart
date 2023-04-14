@@ -11,9 +11,11 @@ import {
   Flex,
   useToast
 } from "@chakra-ui/react";
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm() {
   const toast = useToast()
+  const navigate=useNavigate()
   const [loginData, setLoginData] = useState({
     userName: '',
     password: ''
@@ -26,12 +28,18 @@ function LoginForm() {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
+    setTimeout(function(){
+      navigate('/home')
+    },2000)
     toast({
       title: 'Login Succesfull',
       status: 'success',
       duration: 1000,
       isClosable: true,
     })
+    
+   
+    
   }
   return (
     <Flex flexDirection='column' w='100%' alignItems='center' >

@@ -17,13 +17,7 @@ function RegisterPage() {
                 <GridItem colSpan={1}>
                     <RegisterForm />
                 </GridItem>
-
-
             </SimpleGrid>
-       
-
-
-
     )
 }
 

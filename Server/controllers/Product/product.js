@@ -4,6 +4,7 @@ const Product = require("../../models/Product")
 const addProduct = async (req, res) => {
     
     const product = new Product(req.body)
+    console.log(req.body)
     try {
 
         const result = await product.save()

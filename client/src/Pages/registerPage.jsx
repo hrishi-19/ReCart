@@ -9,7 +9,13 @@ function RegisterPage() {
 
     return (
        
-            <SimpleGrid columns={{ base: 1, md: 2, lg: 2 }} px={{ base: 0, md: 5, xl: 10 }} py={{ base: 0, md: 5, xl: 8 }} mx='auto' w={{ base: "100%", md: "75%", lg: "75%" }}>
+            <SimpleGrid 
+            columns={{ base: 1, md: 2, lg: 2 }}
+            px={{ base: 0, md: 5, xl: 10 }} 
+            pt={{ base: 0, md: 5, lg: '15vh' }} 
+            mx='auto' 
+            w={{ base: "100%", md: "75%", lg: "75%" }}
+           >
                 <GridItem colSpan={1}>
                     <FormImg img={image} heading={"Welcome Back,"} 
                     text={"To keep connected with us please login with your personal info."} path="login"/>

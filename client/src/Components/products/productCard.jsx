@@ -8,7 +8,7 @@ function ProductCard(props) {
             <CardHeader>
                 <Stack>
                     <Text>Id:{id}</Text>
-                    <Image src={img} w="250px" h="250px"/>
+                    <Image src={img} w="200px" h="200px"/>
                 </Stack>
                 <CardBody>
                     <Stack>

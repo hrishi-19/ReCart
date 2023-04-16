@@ -9,6 +9,7 @@ import {
   Stack,
   useToast
 } from '@chakra-ui/react'
+import axios from 'axios'
 import {React,useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -22,7 +23,7 @@ function RegisterForm() {
     lastName:'',
     userName:'',
     email:'',
-    pasword:'',
+    password:'',
     phone:''
   })
   const handleChange=(e)=>{
@@ -35,18 +36,35 @@ function RegisterForm() {
    
 
   }
-  const handleSubmit=(e)=>{
+  const handleSubmit=async(e)=>{
     e.preventDefault()
-    setTimeout(function(){
-      navigate('/login')
-    },2000)
-    toast({
-      title: 'Account created.',
-          description: "We've created your account for you.",
-          status: 'success',
-          duration: 1000,
-          isClosable: true,
-    })
+    try{
+      const response=await axios.post('/api/auth/register',{...registerData})
+      if(response.status===201){
+        toast({
+          title: `Success`,
+              description: `Your accoun has been created.`,
+              status: 'success',
+              duration: 1000,
+              isClosable: true,
+        })
+       setTimeout(function(){navigate('/home')},2000)
+       
+        
+
+      }
+    }catch(err){
+      console.log(err)
+      
+      toast({
+        title: `warning.`,
+            description: `username or email already exits`,
+            status: 'warning',
+            duration: 1000,
+            isClosable: true,
+      })
+    }
+   
    
   }
 

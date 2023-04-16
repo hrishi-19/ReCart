@@ -9,11 +9,12 @@ import MyProducts from '../Pages/myProducts'
 import Inbox from '../Pages/inbox'
 import HomePage from '../Pages/homePage'
 import ProductPage from '../Pages/productPage'
+import { Box } from '@chakra-ui/react'
 
 function RootLayout() {
 
     return (
-        <div>
+        <Box position='relative'>
             <Navbar />
             <Routes>
                 <Route path='/register' element={<RegisterPage />} />
@@ -27,7 +28,7 @@ function RootLayout() {
                 </Route>
                 <Route path='/product/:id' element={<ProductPage/>}/>
             </Routes>
-        </div>
+        </Box>
     )
 }
 

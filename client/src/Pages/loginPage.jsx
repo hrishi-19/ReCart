@@ -6,7 +6,12 @@ import FormImg from '../Components/Forms/formImg'
 
 function LoginPage() {
     return (
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 2 }} px={{ base: 0, md: 5, xl: 10 }} py={{ base: 0, md: 5, xl: 8 }} mx='auto' w={{ base: "100%", md: "75%", lg: "75%" }}>
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 2 }}
+         px={{ base: 0, md: 5, xl: 10 }}
+         pt={{ base: 0, md: 5, lg: '15vh' }} 
+           mx='auto' w={{ base: "100%", md: "75%", lg: "75%" }}
+           position='absolute' top='20vh'
+           >
             <GridItem colSpan={1}>
                 <LoginForm />
             </GridItem>

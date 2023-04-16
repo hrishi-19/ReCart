@@ -9,9 +9,14 @@ function HomePage() {
     'All', 'Mobile', 'Laptop', 'Bikes', 'Shoe', 'Television'
   ]
   return (
-    <Flex gap={{base:0,md:10,xl:10}} px={{base:2,md:10,xl:10}} pt='10' justifyContent='center'>
+    <Flex gap={{base:0,md:10,xl:20}}
+    px={{base:2,md:10,xl:10}}
+    pt={{base:'10vh',md:'10'}}
+    position={{base:'static',md:'relative'}}
+    top='10vh'>
+    
       <SideBar />
-      <Stack h='80vh' overflowY='scroll' gap={25} >
+      <Stack  gap={25} position={{base:'static',md:'absolute'}} left='28%'>
       <Flex gap={4} mt='5' w='full' wrap='wrap' >
       {
         categories.map(item => (

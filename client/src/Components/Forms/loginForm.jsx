@@ -12,6 +12,7 @@ import {
   useToast
 } from "@chakra-ui/react";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function LoginForm() {
   const toast = useToast()
@@ -26,21 +27,35 @@ function LoginForm() {
       [e.target.name]: e.target.value
     })
   }
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault()
-    setTimeout(function(){
-      navigate('/home')
-    },2000)
-    toast({
-      title: 'Login Succesfull',
-      status: 'success',
-      duration: 1000,
-      isClosable: true,
-    })
+   try{
+    const response=await axios.post('/api/auth/login',{...loginData})
+    if(response.status===200){
+      toast({
+        title: `Success`,
+            description: `succesfull logged in.`,
+            status: 'success',
+            duration: 1000,
+            isClosable: true,
+      })
+     setTimeout(function(){navigate('/home')},2000)
+   }
+  
     
-   
-    
+  }catch(err){
+    console.log(err)
+      
+      toast({
+        title: `warning.`,
+            description: `username or email already exits`,
+            status: 'warning',
+            duration: 1000,
+            isClosable: true,
+      })
+
   }
+}
   return (
     <Flex flexDirection='column' w='100%' alignItems='center' >
       <Flex w={{ base: '100%', md: '80%', lg: '80%' }}
@@ -71,5 +86,6 @@ function LoginForm() {
     </Flex>
   )
 }
+
 
 export default LoginForm

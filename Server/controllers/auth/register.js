@@ -9,7 +9,7 @@ const register=async(req,res)=>{
         lastName,
         userName,
         email,
-        password:crypto.AES.encrypt(req.body.userName,process.env.ENCRYPT_KEY).toString(),
+        password:crypto.AES.encrypt(req.body.password,process.env.ENCRYPT_KEY).toString(),
         phone
     })
 

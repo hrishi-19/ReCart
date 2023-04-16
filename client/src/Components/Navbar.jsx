@@ -19,7 +19,7 @@ export default function Navbar() {
 
 
     return (
-        <Flex as='nav' sx={navtheme} boxShadow='base' h='10vh' alignItems='center'>
+        <Flex as='nav' sx={navtheme} boxShadow='base' h='10vh' alignItems='center' position='fixed' top='0' left='0' right='0' zIndex={100}>
             <Heading
                 fontWeight='extrabold'
                 fontSize={{ base: '2xl', md: '3xl', lg: '5xl' }}

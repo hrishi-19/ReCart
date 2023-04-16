@@ -11,7 +11,7 @@ function SideBar() {
 
 
     return (
-        <Box>
+        <Box position='fixed'>
             <Box as="aside" h="70vh" rounded='3xl' boxShadow='lg' p='5' display={{ base: 'none', md: 'flex', xl: 'flex' }} >
                 <Flex flexDirection='column' justifyContent='center' alignItems='start  ' gap='10' w='full'>
                     <Text fontSize='2xl' color="#333" fontWeight='700' textAlign='center'>Welcome,Hrishikesh</Text>

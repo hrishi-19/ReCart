@@ -5,9 +5,13 @@ import ProfileForm from '../Components/Forms/profileForm'
 
 function ProfilePage() {
   return (
-    <Flex gap={{base:0,xl:5,lg:3}} p={{base:2,xl:10,lg:5}}>
+    <Flex gap={{base:0,md:10,xl:20}}
+    px={{base:2,md:10,xl:10}}
+    pt={{base:'10vh',md:'10'}}
+    position={{base:'static',md:'relative'}}
+    top='10vh'>
     <SideBar />
-    <Box w={{base:'full',lg:'50vw',xl:'50vw'}}>
+    <Box w={{base:'full',lg:'50vw',xl:'50vw'}} position={{base:'static',md:'absolute'}} left='35%'>
     <Text fontSize='2xl' fontWeight='600' color='gray'>Profile</Text>
     <ProfileForm/>
     </Box>

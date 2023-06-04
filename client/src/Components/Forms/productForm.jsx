@@ -1,6 +1,7 @@
 import { Box, Button, Flex, FormControl, FormLabel, HStack, Input, Radio, RadioGroup, Textarea, useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import axios from 'axios'
+import { convertToBse64 } from '../../utils/helperFunctions'
 
 function ProductForm() {
     const toast=useToast()
@@ -21,6 +22,16 @@ function ProductForm() {
   
       })
      
+    }
+
+    const  handleFileChange =async (e)=>{
+        const file =e.target.files[0];
+        const base64 = await convertToBse64(file);
+        setProductData({
+            ...productData,
+            [e.target.name]:base64
+        })
+
     }
     const handleSubmit=async(e)=>{
       e.preventDefault()
@@ -94,7 +105,7 @@ function ProductForm() {
                     </FormControl>
                     <FormControl isRequired>
                         <FormLabel>Image:</FormLabel>
-                        <Input type='file' name='img' accept="image/png, image/jpg, image/jpeg" border='none' onChange={handleChange} value={productData.img}/>
+                        <Input type='file' name ='img' accept="image/png, image/jpg, image/jpeg" border='none' onChange={handleFileChange} />
                     </FormControl>
                 </Flex>
                 <Flex gap='10' mt='5'>

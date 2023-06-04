@@ -43,7 +43,7 @@ function RegisterForm() {
       if(response.status===201){
         toast({
           title: `Success`,
-              description: `Your accoun has been created.`,
+              description: `Your account has been created.`,
               status: 'success',
               duration: 1000,
               isClosable: true,

@@ -2,12 +2,11 @@ import React from 'react'
 import { Card, CardHeader, CardBody, Stack, Image, Flex,Text } from '@chakra-ui/react'
 
 function ProductCard(props) {
-    const { id, productName, type, price, img } = { ...props }
+    const {productName, type, price, img } = { ...props }
     return (
         <Card>
             <CardHeader>
                 <Stack>
-                    <Text>Id:{id}</Text>
                     <Image src={img} w="200px" h="200px"/>
                 </Stack>
                 <CardBody>

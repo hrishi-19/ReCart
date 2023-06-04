@@ -16,12 +16,14 @@ const register=async(req,res)=>{
     try{
         const result=await user.save()
         const{password,...userData}=result._doc
-        res.status(201).json(userData)
+        res.status(201).json({error:0,msg:"user registered successfully"})
     }
     catch(err){
-        console.log(err.message)
-        res.status(500).json(err.message)
+        if(err.code===11000){
+            return res.status(409).json({error:1,error_msg:"username/Email already exists"})
+        }
+        res.status(500).json({error:1,error_msg:"Some error occured"})
     }
 
 }
-module.exports=register
+module.exports = register
